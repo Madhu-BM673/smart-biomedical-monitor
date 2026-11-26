@@ -1,12 +1,13 @@
-# Smart Biomedical Monitoring System
+import csv
 
 print("Smart Biomedical Monitoring System")
 print("--------------------------------")
 
-heart_rate =  heart_rate =  78
-temperature = 36.8
-spo2 = 98
+with open("readings.csv", "r") as file:
+    reader = csv.DictReader(file)
 
-print("Heart Rate:", heart_rate, "BPM")
-print("Temperature:", temperature, "°C")
-print("SpO2:", spo2, "%")
+    for row in reader:
+        print("Heart Rate:", row["heart_rate"], "BPM")
+        print("Temperature:", row["temperature"], "°C")
+        print("SpO2:", row["spo2"], "%")
+        print("--------------------------")
